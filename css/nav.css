@@ -1,0 +1,112 @@
+@charset "UTF-8";
+
+#menu {
+    position: fixed;
+    top: 0;
+    height:45px;
+    margin: 0 auto; /* 水平居中 */
+    width: 100%;
+    z-index: 1000;
+  }/* 设置导航栏样式 */
+
+
+  #menu .navbar-collapse {
+    justify-content: flex-end; /* 将导航链接居右 */
+  }
+
+  .navbar {
+    background-color: #a37f71 !important; /* 修改导航栏的背景颜色 */
+  }
+
+  .navbar-hidden {
+    display: none !important;
+  }
+
+  #menu a {
+    color: #dfcfb5;/* 正常状态下的颜色 */
+  }
+
+  #menu a:hover {
+    color: #c3b696; /* 鼠标悬停状态下的颜色 */
+  }
+
+  #menu a:active {
+    color: #f0e9e3; /* 链接被点击时的颜色 */
+  }
+
+
+  #menu a {
+    font-size: 19px; /* 修改导航链接文字字号 */
+    font-weight: bold; /* 修改导航链接文字字重 */
+    text-decoration: none; /* 去除链接的下划线 */
+    margin-right: 20px; /* 设置导航链接之间的水平间距，根据需要调整值 */
+  }
+
+  .container555 {
+    padding: 0px;
+    height: 1000px;
+  }
+
+/* 例句滚动 */ 
+  .scrolling-text-container {
+    white-space: nowrap;
+    color: #997f6e;
+    padding: 9px;
+    margin: 0 auto;
+    margin-bottom: -5px;
+    overflow: hidden;
+    position: relative;
+    width: 50%;
+}
+
+.scrolling-text-inner {
+    animation: scrollText 0s linear infinite;
+    display: inline-block;
+    background: linear-gradient(90deg,#dfcfb5, #d6cbad); /* 改变背景颜色 */
+    color: #8e523a;
+    padding: 5px;
+    border-radius: 8px;
+    white-space: nowrap;
+}
+.statement1 {
+    animation: scrollText1 11s linear infinite;
+}
+
+.statement2 {
+    animation: scrollText2 9s linear infinite;
+}
+
+.statement3 {
+    animation: scrollText3 8s linear infinite;
+}
+
+@keyframes scrollText1 {
+    0% {
+        transform: translateX(340%);
+    }
+    100% {
+        transform: translateX(-230%);
+    }
+}
+@keyframes scrollText2 {
+    0% {
+        transform: translateX(330%);
+    }
+    100% {
+        transform: translateX(-230%);
+    }
+}
+@keyframes scrollText3 {
+    0% {
+        transform: translateX(350%);
+    }
+    100% {
+        transform: translateX(-230%);
+    }
+}
+
+.scroll-fade-in {
+        opacity: 0; /* 初始透明度为0 */
+        transition: opacity 0.3s ease-in-out; /* 添加过渡效果 */
+    }
+
