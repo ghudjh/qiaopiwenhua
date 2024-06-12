@@ -1,0 +1,1238 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-Lge2E2XotzMiwH69/MXB72yLpwyENMiOKX8zS8Qo7LDCvaBIWGL+GlRQEKIpYR04" crossorigin="anonymous"></script>
+        <script src="./echarts.min.js"></script>
+        <link rel="stylesheet" href="./css/animate.css">
+        <link rel="stylesheet" href="./css/economic.css">
+        <link rel="stylesheet" href="./css/culture.css">
+        <link rel="stylesheet" href="./css/action.css">
+        <link rel="stylesheet" href="./css/nav.css">
+        <link rel="stylesheet" href="css/style_haiwai.css">
+        <link rel="stylesheet" href="css/style_juanzhou.css">
+        <link rel="stylesheet" href="css/style_dengta.css">
+        <link rel="stylesheet" href="css/style_book.css">
+        <script type="text/javascript" src="./js/jquery.min.js"></script>
+		<script type="text/javascript" src="./js/snowfall.jquery.js"></script>
+
+      <style>
+        body {
+          padding: 0px;
+          background: url('./image/背景.jpg')
+          
+        }
+        .snowfall-flakes{animation:sakura 1s linear 0s infinite;}
+		@keyframes sakura{
+				0% {transform:rotate3d(0, 0, 0, 0deg);}
+				25%{transform:rotate3d(1, 1, 0, 60deg);}
+				50%{transform:rotate3d(1, 1, 0, 0deg);}
+				75%{transform:rotate3d(1, 0, 0, 60deg);}
+				100% {transform:rotate3d(1, 0, 0, 0deg);}
+		}
+        
+        .allcontent{
+            display: none;
+        }
+
+        .imagestart{
+            background-image: url('./image/首页新.jpg');
+            background-position: 0 0;
+            background-attachment: fixed;
+            background-size: cover;
+            height:800px;
+            width:100%;
+        }
+
+        .imageimport{
+            background-image: url('./image/引入.gif');
+            background-position: 0 0;
+            background-attachment: fixed;
+            background-size: cover;
+            height:1036px;
+            width:100%;
+        }
+
+        .imageending{
+            background-image: url('./image/结尾1.jpg');
+            background-position: 0 0;
+            background-attachment: fixed;
+            background-size: cover;
+            height:1036px;
+            width:100%;
+        }
+
+        .imagetittle{
+            background-image: url('./image/小标题背景4.jpg');
+            background-position: 0 0;
+            background-attachment: fixed;
+            background-size: cover;
+            height:1036px;
+            width:100%;
+        }
+
+        @font-face{
+            font-family: 'FZBYFKSK';
+            src: url(./font/FZBYFKSK.TTF);
+        }
+
+        @font-face{
+            font-family: 'YanShiChunFengKai';
+            src: url(./font/YanShiChunFengKai-2-1.ttf);
+        }
+
+        /*邮筒插画*/
+        .image-container1 {  
+            display: flex;  
+            align-items: center; 
+        }
+        
+
+        p {
+        font-family: 'FZBYFKSK';
+        font-size: 18px;
+        width: calc(100% - 60px);
+        max-width: 700px;
+        margin: 30px auto;
+        text-align:justify;
+        line-height: 36px;
+        }
+
+        .p1 {
+        font-size: 17px;
+        width: calc(100% - 60px);
+        max-width: 700px;
+        margin: 30px auto;
+        text-align:center;
+        line-height: 36px;
+        }
+
+        .note1{
+            font-family: 'FZBYFKSK';
+            font-size: 17px;
+            text-align: center;
+            font-weight: bold;
+            color:#764b3a;
+            margin-bottom: 5px;
+        }
+        .note11{
+            font-family: 'FZBYFKSK';
+            font-size: 17px;
+            text-align: center;
+            margin-top: 6px;
+            font-weight: bold;
+            color:#764b3a;
+            margin-bottom: 5px;
+        }
+
+        .note2{
+            font-family: 'FZBYFKSK';
+            font-size: 13px;
+            text-align: center;
+            color:#4e322cac;
+            margin-top: 5px;
+        }
+
+        .note4{
+            font-family: 'FZBYFKSK';
+            font-size: 15px;
+            font-weight: bold;
+            text-align: center;
+            color:#764b3a;
+            margin-top: 5px;
+        }
+
+        h2{
+        color: #000;
+        }
+
+        .highlight1{
+            font-weight:bold;
+            color:#753d30;
+            font-size: 18px;
+        }
+        
+        .bgtitle{
+            position:relative;
+            text-align: center;
+            top:230px;
+            font-size: 65px;
+            color:#a32c40;
+            font-weight: bolder;
+            background-color: rgba(255, 255, 255, 0.7);
+            height:220px;
+        }
+        
+        @font-face{
+            font-family: 'TrueType_2';
+            src: url(./font/TrueType_2.ttf);
+            }
+
+        @font-face{
+            font-family: 'TrueType_1';
+            src: url(./font/TrueType_1.ttf);
+            }
+
+
+        .mtitle{
+            font-family:TrueType_1;
+            font-weight:bolder;
+            color:#753d30;
+            font-size: 75px;
+            vertical-align: center; /* 设置垂直对齐为底部 */
+            display: inline-block; /* 需要与 vertical-align 配合使用 */
+            margin-top:30px;
+        }
+
+        .stitle{
+            font-family:TrueType_1;
+            font-weight:normal;
+            color:#753d30;
+            font-size: 70px;
+            vertical-align:top; /* 设置垂直对齐为顶部 */
+            display: inline-block; /* 需要与 vertical-align 配合使用 */
+            margin-top: 0px;
+
+        }
+        
+        .zwtitle{
+            font-family:TrueType_2;
+            color: #af4d0299;
+            font-size: 60px;
+            text-align: center;
+            margin-top: 50px;
+            margin-bottom: 20px;
+            font-weight:bolder;
+            height:160px;
+            line-height: 160px;
+        }
+        #slider {
+            position: relative;
+            height: 400px;
+            margin-bottom: 0px;
+            margin-left: 10px;
+            overflow: hidden;
+        }
+        #slider img {
+            position: absolute;
+            margin-left: 300px;
+            top: 20px;
+            left: 0;
+            opacity: 0;
+            z-index: 1;
+            transition: opacity 0.5s;
+        }
+        #slider img.active {
+            opacity: 1;
+            z-index: 2;
+        }
+
+         /* 加载页样式 */
+         .loading-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url('./image/加载页02.gif');
+            background-size: cover;
+            background-position: center;
+        }
+
+        /*轮播图*/
+        .carousel-container {
+            width: 552px; /* 轮播图容器的宽度 */
+            height: 275px; /* 轮播图容器的高度 */
+            border: 7px solid #5a1d1a8b; /* 方形边框 */
+            overflow: hidden; /* 隐藏溢出内容 */
+            position: relative;
+            position: relative;
+            margin: 0 auto; /* 水平居中 */
+            border-radius: 10px; /* 设置容器圆角大小 */
+        }
+
+        .carousel-images {
+            display: flex;
+            transition: transform 0.5s ease; /* 添加过渡效果 */
+            border-radius: 10px; /* 设置边框圆角大小 */
+        }
+
+        .carousel-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* 图片填充方式，保持比例填充 */
+        }
+
+        /* 按钮样式 */
+        .carousel-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: #5a1d1a6c;
+            padding: 12px 12px;
+            cursor: pointer;
+            border: none;
+            border-radius: 50%; /* 圆形按钮 */
+        }
+        .prev-button {
+            left: 10px;
+        }
+        .next-button {
+            right: 10px;
+        }
+        .arrow-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%); /* 居中对齐 */
+            width: 17px; /* 箭头图标宽度 */
+            height: 12px; /* 箭头图标高度 */
+            fill: #dfcfb5; /* 箭头颜色 */
+        }
+
+
+        /*冷知识*/
+        /* 水平翻转效果 */
+        .image-container {
+        padding: 0px;
+        width: 670px;
+        height: 310px;
+        margin-bottom: 20px;
+        margin: 0 auto;
+        perspective: 1000px;
+        }
+
+        .flip-container {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        transform-style: preserve-3d;
+        transform: rotateX(0deg); /* 改为水平翻转 */
+        transition: transform 0.5s;
+        }
+
+        .flip-container:hover {
+        transform: rotateX(180deg); /* 水平翻转 */
+        }
+
+        .flipper {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        transform-style: preserve-3d;
+        transform: rotateX(0deg); /* 改为水平翻转 */
+        transition: transform 0.5s;
+        transform-origin: left center; /* 设置转轴为左边缘 */
+        }
+
+        .image-container:hover .flipper {
+        transform: rotateX(-180deg); /* 水平翻转 */
+        }
+
+        .front,
+        .back {
+        width: 90%;
+        height: 90%;
+        position: absolute;
+        backface-visibility: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: 0 auto; /* 水平居中 */
+        transform-origin: left center; /* 设置转轴为左边缘 */
+        transform: rotateY(0deg);
+        opacity: 1;
+        transition: 0.5s;
+        }
+
+        .image-container:hover .front {
+        transform: rotateY(90deg); /* 改为水平翻转 */
+        opacity: 0;
+        }
+
+        .image-container:hover .back {
+        transform: rotateY(0deg); /* 改为水平翻转 */
+        opacity: 1;
+        }
+
+        .back {
+        transform: rotateY(-90deg); /* 改为水平翻转 */
+        }
+
+        .image-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        }
+
+        /*币种分布*/
+        #chart-container {
+            display: flex;
+            justify-content: center;
+        }
+
+
+        /*引入*/
+        .rectangle {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        transform: translateY(-50%);
+        height: 170px; /* 长方形横条的高度 */
+        background-color: #ddd1bede; /* 长方形横条的背景色 */
+        }
+        .noteyinru{
+            font-family: 'YanShiChunFengKai';
+            font-size: 42px;
+            display: inline-block; /* 让文字在长方形横条中水平居中 */
+            color: #553636;
+            padding-top: 25px;
+            padding-bottom: 4px;
+        }
+        
+        </style>
+
+        <!--文字转动-->
+        <style>
+        .light {
+            background: #666;
+            color: #fff;
+        }
+
+        .content .tagcloud {
+            margin: 10px;
+        }
+
+        </style>
+        <!-- 侨批内容 style -->
+        <style>
+        .tagcloud {
+            font-size: 18px;
+            color: #753d30;
+        }
+
+        .tagcloud--item {
+            padding:4px 10px;
+            width: 300px;/*文字排列宽度*/
+            background-color: transparent;
+            border: 1px solid transparent;
+            cursor: pointer;
+        }
+
+        .tagcloud--item:hover {
+            background-color: #6b696934;
+            border: 1px solid #6b6969;
+            -webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+            border-radius: 3px;
+            opacity: 1 !important;
+            z-index: 100 !important;
+        }
+
+        .light .tagcloud--item {
+            color: #fff;
+        }
+
+        .light .tagcloud--item:hover {
+            background-color: rgba(255, 255, 255, .1);
+            border: 1px solid #fff;
+        }
+        </style>
+        <!--故事引入style-->
+        <style>
+        .image-story-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+            position: relative; /* 添加相对定位 */
+        }
+
+        .image-story {
+            display: flex;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            opacity: 0;
+            transition: opacity 1s;
+        }
+
+        .image-story img {
+            border-radius: 10px;
+            margin: auto;
+            transition: opacity 0.8s;
+        }
+
+        .visible {
+            opacity: 1;
+        }
+
+        .text-hidden {
+            opacity: 0;
+        }
+
+        .text-visible {
+            opacity: 1;
+        }
+    </style>
+
+        <title>纸短情长:「侨」见批信中的家国情怀</title>
+          <!--货币币种-->
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+        
+    </head>
+    
+    <body data-spy="scroll" data-target="#menu" data-offset="56">
+        <!-- 加载页 -->
+        <div class="loading-container">
+        </div>
+        <!--樱花飘落-->
+		<script type='text/javascript'>
+		$(document).ready(function(){
+			$(document).snowfall({image:"./js/img/1.png", flakeCount:30, minSpeed:1, minSize:8, maxSize:15,});
+            $(document).snowfall({image:"./js/img/3.png", flakeCount:30, minSpeed:1, minSize:8, maxSize:15,});
+            $(document).snowfall({image:"./js/img/2.png", flakeCount:30, minSpeed:1, minSize:8, maxSize:15,});
+            $(document).snowfall({image:"./js/img/4.png", flakeCount:30, minSpeed:1, minSize:8, maxSize:15,});
+		});
+		</script>
+		
+
+        <div class="allcontent">
+            <!-- 导航栏 -->
+            <nav id="menu" class="navbar navbar-expand-lg navbar-light bg-light navbar-hidden">
+                <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="#pt0">开篇</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#pt1">侨批溯源</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#pt2">汇通天下</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#pt3">尺素丹心</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#pt4">“侨”见未来</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#pt5">结语</a></li>
+                    </ul>
+                </div>
+                </div>
+            </nav>
+            
+
+            <div class="imagestart"><!--首页-->
+                <div style="height: 500px;"></div>
+            </div>
+
+            <!--正文-->
+            <div class="container555" style="background-image: url('./image/背景.jpg');">
+                <!-- 页面内容部分，包括各个章节（pt0, pt1, ...） -->
+                <!--开篇-->
+                <div id="pt0" style="margin-bottom:0px;">
+                    <div style="height: 10px;margin: auto;"></div>
+
+                    <div class="container" style="margin-bottom: 0px;">
+                        <img src="./image/故事1.png" style="margin-left: 16%;width: 37%;">
+                        <img src="./image/故事2.png" style="margin-right: 18%;width: 35%;">
+                        <img src="./image/故事3.png" style="margin-right: 5%;margin-top: 2%; width: 38%;">
+                        <img src="./image/故事4.png" style="margin-left: 12%;margin-top: 3%;width: 37%;">
+                    </div>
+
+                    <div class="yinrugif" style="margin-top: 0px; margin-bottom: 0px; text-align: center; position: relative;">
+                        <div class="rectangle">
+                            <span class="noteyinru">
+                                侨批家书意绵长，银信交融诉衷肠。<br>
+                                纸短情长话桑梓，家国情怀凝笔端。
+                            </span>
+                        </div>
+                        <img src="./image/引入2.0.gif" width="100%">
+                    </div>
+                    
+                </div>
+
+                <!-- 侨批溯源 -->
+                <div id="pt1" style="margin-bottom:10px;">
+                    <div style="height: 10px;"></div>
+                    <div class="imagetittle" style="height: 150px;">
+                        <div style="text-align: center;padding: 4%;"><img src="./image/小标题侨批溯源.png" width="30%"></div>
+                    </div>
+                    <p>潮汕地处沿海，先民素有出洋谋生的传统。鸦片战争后，随着广州、潮州等地的相继开埠，加之<span class="highlight1">国内社会动荡、自然灾害和人口压力</span>等因素，以及<span class="highlight1">东南亚、澳洲等地区的相继开发</span>，沿海百姓纷纷远赴重洋，踏上海外谋生之途。</p>
+                    <p>早期过番谋生的移民主要依靠出卖廉价劳动力为生，<span class="highlight1">采集橡胶、修路、垦荒、种植</span>是最为常见的谋生手段。</p>
+
+                    <!--海外生活轮播图-->
+                    <!--
+                    <div class="carousel-container">
+                        <div class="carousel-images">
+                            <img class="carousel-image" src="./image/海外生活2.jpg" alt="Image 11">
+                            <img class="carousel-image" src="./image/海外生活3.jpg" alt="Image 12">
+                            <img class="carousel-image" src="./image/海外生活4.jpg" alt="Image 13">
+                            <img class="carousel-image" src="./image/海外生活6.jpg" alt="Image 14">
+                        </div>
+                        <button class="carousel-button prev-button" onclick="prevSlide()">
+                            <svg class="arrow-icon" viewBox="0 0 20 20">
+                                <polygon points="2,10 18,2 18,18" />
+                            </svg>
+                        </button>
+                        
+                        <button class="carousel-button next-button" onclick="nextSlide()">
+                            <svg class="arrow-icon" viewBox="0 0 20 20">
+                                <polygon points="18,10 2,2 2,18" />
+                            </svg>
+                        </button>
+                    </div>
+                    -->
+                    <div class="note2">触碰相册，查看华侨的海外生活</div>
+                    <div class="container222">
+                        <div class="beauty-container" style="margin-top: 0px;margin-bottom: 0px;">
+                          <div class="beauty-card"></div>
+                          <div class="beauty-card"></div>
+                          <div class="beauty-card"></div>
+                          <div class="beauty-card-parent">
+                            <div class="beauty-card-cover"></div>
+                            <div class="beauty-card-label">老相片</div>
+                          </div>
+                        </div>
+                    </div>
+
+                    <div class="note2">图片来源：百年跨国两地书·福建侨批网上展厅</div>
+
+                    <p>华侨在海外谋生，思念亲人， 便寄信报平安或问候家人，并将积攒的钱款汇回家乡，于是便产生了<span class="highlight1">“信款合一”</span> 的特殊家书——侨批。</p>
+                    <p>从侨批信件的寄出地来看，当时华侨的足迹遍布东亚及东南亚各国，最远的甚至横跨半球，去到赤道南端的澳大利亚。</p>
+                    <p>在信件的数量上，以<span class="highlight1">泰国（24202条）和新加坡（17929条）</span>寄出的最为频密，这也一定程度上反映了这两个地区的华侨比重。</p>
+                    <!--寄批地-->
+                    <div class="note1">侨批的外乡寄出地分布</div>
+                    <div class="flourish-embed flourish-map" data-src="visualisation/17558176" style="width: 58%;margin: auto;">
+                        <script src="https://public.flourish.studio/resources/embed.js"></script>
+                    </div>
+                    <div class="note2">数据来源：大学数字图书馆国际合作计划（特藏资源）</div>
+                    <div class="note2">（图中中国外乡侨批的寄出地为中国香港，除图示数据以外，有312张侨批的海外寄出地为不详）</div>
+                    <p>华侨的信件多寄往<span class="highlight1">家乡</span>，主要是如今汕头、揭阳、潮州等市，也有少部分批信会被送往广州、梅州以及福建沿海等地区。</p>                
+                    <!--寄收批-->
+                    <div class="note1">侨批的寄收地分布</div>
+                    <div class="flourish-embed flourish-sankey" data-src="visualisation/17577333" style="width: 52%;margin: auto;">
+                        <script src="https://public.flourish.studio/resources/embed.js"></script></div>
+                    <div class="note2">数据来源：大学数字图书馆国际合作计划（特藏资源）</div>
+
+
+                <!--汇通天下-->
+                <div id="pt2" style="margin-bottom:10px;">
+                    <div style="height: 10px;"></div>
+                    <div class="imagetittle" style="height: 150px;">
+                        <div style="text-align: center;padding: 4%;"><img src="./image/小标题汇通天下.png" width="30%"></div>
+                    </div>
+                    <p>随着寄送银信需求的增大，一种专门为华侨华人递送银信、陪送华侨华人出国或归国为职业的人群应运而生。因为当时往来只能走水路，这些人被称为<span class="highlight1">“水客”</span>，在广府地区也被称作<span class="highlight1">“巡城马”</span>。</p>
+
+                    <!--水客冷知识-->
+                    <div class="note2">移动鼠标，触碰查看相关介绍</div>
+                    <div class="image-container">
+                        <div class="flip-container">
+                        <div class="flipper">
+                            <div class="front">
+                            <img src="./image/水客1.png" alt="Image 1">
+                            </div>
+                            <div class="back">
+                            <img src="./image/水客2.png" alt="Image 2">
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+
+                    <p>“侨批”的送达过程十分复杂，侨批馆(后改<span class="highlight1">侨批局</span>)必须定期收集、解送、投递“侨批”，并在“侨批”封正面写上国内收信人地址、姓名、寄钱币种数及南洋寄信人姓名。背面则盖国外侨批局图章，并在信封上写上<span class="highlight1">列号</span>、设簿登记；同时列出清单，附在“侨批”总包内寄出。而为了减轻重量，节约邮费，当时“侨批”用的信纸一般薄如蝉翼。</p>
+                    
+                    <!--侨批局冷知识-->
+                    <div class="note2">拉动卷轴右侧，查看相关介绍</div>
+                    <!--
+                    <div class="image-container">
+                        <div class="flip-container">
+                        <div class="flipper">
+                            <div class="front">
+                            <img src="./image/2.1.png" alt="Image 1">
+                            </div>
+                            <div class="back">
+                            <img src="./image/2.2.png" alt="Image 2">
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    -->
+                    
+                    <!--列号冷知识-->
+                    <!--
+                    <div class="image-container">
+                        <div class="flip-container">
+                        <div class="flipper">
+                            <div class="front">
+                            <img src="./image/3.1.png" alt="Image 1">
+                            </div>
+                            <div class="back">
+                            <img src="./image/3.2.png" alt="Image 2">
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    -->
+
+
+                    <!-- 卷轴冷知识介绍 -->
+                    <div class="container">
+                        <div class="painting">
+                            <div class="part part-1" style="width: 0px">
+                                <div class="painting-roll"></div>
+                                <div class="painting-piece">
+                                    <div class="resize">拉动展开</div>
+                                    
+                                    <div class="note11">侨批局</div>
+                                    <div class="note1">侨批局又称为“信局”“民信局”“批信局”“侨信局”“汇兑信局”“华侨民信局”“批馆”“侨批馆”“汇兑庄”“侨汇庄”等，是一种颇具特色的华人民间企业。侨批局市经营侨汇业务的行业，它在海外有坐庄收汇，在国内有联号（或代理店）解汇，侨批局除在国内出国华侨较多的城镇开始外，还在国外设立分号。</div>
+                                </div>
+                            </div>
+                            
+                            <div class="part part-2" style="width: 0px;top: 200px; ">
+                                <div class="painting-roll"></div>
+                                <div class="painting-piece">
+                                    <div class="note11">列号</div>
+                                    <div class="note1">侨批封上的列字及编号，是海外批信局对批信运作的管理方法，是海外侨批信局走向专业化经营及管理的产物。侨批列字主要有六种：①《千字文》千字文次序列字头（如天字列为第一次批，地字为第二次批，以下类推），逐字头（逐次批）按收批次序逐件编的顺号，填写“某次侨批汇解目录”，详细列明寄批及收批人的姓名，地址和款；②用批局名称的汉字作列字；③用批局所在地的地名汉译文字作列字；④用双汉字作列字；⑤用中文数字作列字；⑥用英文字母作列字。</div>              
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p>当时的“侨批”通过海路送达侨眷手中，侨眷收信后要马上回信，回信再经“批客”的手，送回侨批局，最后重返寄信人手中。寄信人得知家人已如数收到钱物时，这枚带有“往返”功能的“侨批”才算顺利走完了它的旅程。</p>
+                    <!--流程图-->
+                    <div class="note1">侨批寄收流程图</div>
+                    <br>
+                    <div style="text-align: center;"><img src="./image/流程图更新.gif" width="67%" alt="侨批流程图"></div>
+
+                    <p>二战期间，日寇侵占东南亚各地后，制定了限制华侨华人汇款的各项条款；二战结束后，出于对巨额侨汇的不安，南洋当局延续了限制华侨华人汇款的政策；而在新中国成立后，部分南洋国家配合西方反华势力，对中国进行政治与经济金融封锁，禁止或限制当地华侨华人汇款回国。</p>
+                    <p>为保证侨批顺利送达，海内外的侨批业者发明了<span class="highlight1">“暗语”</span>。侨胞们对侨批中随信汇寄银钱的数目等信息进行隐藏，只有懂相关隐语的人才能破解。而侨批局为了广大侨眷的利益，也竭力在华侨华人、侨眷和海外联号批局之间进行沟通。</p>                                
+                    
+                    <!--暗语冷知识-->
+                    <div class="note2">移动鼠标，触碰查看相关介绍</div>
+                    <div class="image-container">
+                        <div class="flip-container">
+                        <div class="flipper">
+                            <div class="front">
+                            <img src="./image/4.1.png" alt="Image 1">
+                            </div>
+                            <div class="back">
+                            <img src="./image/4.2.png" alt="Image 2">
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    
+                    <p>“兹付去烟纸壹佰块”、“兹付去烟纸柒拾片查收”、“门牌柒拾伍号”、“外付饼干捌拾斤”这些侨批内容看似平常，但其实另有乾坤：信中的<span class="highlight1">“烟纸”、“门牌”、“饼干”</span>等代指的是钱的数目，是华侨华人寄送侨批使用的“暗语”。</p>
+                </div>
+
+                <!--尺素丹心-->
+                <div id="pt3" style="margin-bottom:10px;">
+                    <div style="height: 10px;"></div>
+                    <div class="imagetittle" style="height: 150px;">
+                        <div style="text-align: center;padding: 4%;"><img src="./image/小标题尺素丹心.png" width="30%"></div>
+                    </div>
+                    <p>海外华侨身在异国，心系故乡，稍有积蓄便寄钱回家，赡养父母、妻儿，甚至仅一元钱也要掰成两半，一半生活，一半养家。</p>
+                    <p>从清末至1980年代的100多年的侨批历史中，侨批封上有着丰富的<span class="highlight1">货币信息</span>：从金属货币到纸币；从外国银洋、本国银元到国币、法币、金圆券；再到人民券(旧币)、港币、人民币等……见证了近代中国的货币历史以及中国与世界交往的<span class="highlight1">“海上金融丝绸之路”</span>。</p>
+                    <!--币种分布-->
+                    <div class="note1">侨批封币的币种及占比</div>
+
+                    <div id="chart-container">
+                        <div id="chart" style="display: flex;width: 580px;height:378px"></div>
+                    </div>
+                    <script>
+                        var data = [{
+                            type: 'bar',
+                            x: ["港币", "国币", "大洋", "人民币", "金圆券", "暗款", "日本龙银", "鹰洋", "广东法币", "南方人民银行币", "法国银元"],
+                            y: [10208, 1244, 293, 227, 136, 59, 48, 28, 9, 2, 1],
+                            marker: {
+                                color: ['#602A1F', '#783027', '#893838', '#8F483C', '#8F573C', '#9E6E56', '#AF8975', '#BA9A89', '#C7AA98', '#d5c0a5', '#EDD8C4']
+                            }
+                        }];
+                
+                        var layout = {
+                            xaxis: {title: "批款币种"},
+                            yaxis: {title: "使用次数（对数尺度）/次", type: "log"},
+                            paper_bgcolor: 'rgba(0,0,0,0)',
+                            plot_bgcolor: 'rgba(0,0,0,0)',
+                            // 减少上方边距
+                            margin: {
+                                t: 12, // 设置为较小的值，如20
+                                b: 67, // 可根据需要调整下方边距
+                                l: 80, // 可根据需要调整左侧边距
+                                r: 80, // 可根据需要调整右侧边距
+                            }
+                        };
+                
+                        // 添加config对象以隐藏浮动工具栏
+                        var config = {displayModeBar: false};
+                
+                        Plotly.newPlot('chart', data, layout, config);
+            
+                    </script>
+
+                    <div class="note2">数据来源：潮汕侨批文献查询统计系统</div>
+                    <div class="note2">（除图示数据以外，有1323张侨批的币种为未知）</div>
+
+
+                    <p>一封封侨批内容虽为家庭琐事，却充满了<span class="highlight1">浓浓的思亲孝悌之情</span>。在已知人物关系的39916条数据中，晚辈向长辈寄送的书信占比就接近半数（47.05%），兄（姐）弟（妹）之间的批信来往也有将近万条（9101条）。</p>
+                    <!--收寄人关系-->
+                    <div class="note1">侨批寄收人物关系图</div>
+                    <div class="flourish-embed flourish-hierarchy" data-src="visualisation/17366986" style="width: 31%;margin: auto;">
+                        <script src="https://public.flourish.studio/resources/embed.js"></script>
+                    </div>
+                    <div class="note2">数据来源：大学数字图书馆国际合作计划（特藏资源）</div>
+                    <div class="note2">（除图所示数据以外，有9181张侨批的寄收人物关系为未知）</div>
+
+                    <div class="p1"><span class="highlight1">一封侨批就是一个故事。</span></div>
+                    <!--侨批内容示例-->
+                    <div class="note1">侨批文字内容例举</div>
+                    <div class="note2">移动鼠标，触碰查看侨批内容</div>
+                    <!--
+                    <div style="text-align: center;">
+                        <div class="scrolling-text-container scroll-delay">
+                            <div class="scrolling-text-inner statement1">儿现年既长，自当谨守慈命，断不放肆，幸勿挂心怀。</div>
+                        </div>
+                    
+                        <div class="scrolling-text-container scroll-delay">
+                            <div class="scrolling-text-inner statement2">籍知大人玉体康泰，安居集福，诸位兄长绥和清泰，可知祝以为颂。</div>
+                        </div>
+                    
+                        <div class="scrolling-text-container">
+                            <div class="scrolling-text-inner statement3">凡吾个人宜知国与家一体，须唤启精神，以御外侮，最后必有一日之所希望也。</div>
+                        </div>
+                    
+                        <div class="scrolling-text-container">
+                            <div class="scrolling-text-inner statement1">近在新闻报纸上阅至米荒，况又敌机轰炸潮汕……</div>
+                        </div>
+                    
+                        <div class="scrolling-text-container">
+                            <div class="scrolling-text-inner statement2">去秋创办冬粉厂以来，进行极为顺利，且出品质佳，跃而驰名港、星市场……</div>
+                        </div>
+                        <div class="scrolling-text-container">
+                            <div class="scrolling-text-inner statement3">天不测尚有风云，莫言吾辈青年热血之人岂无错过之理？</div>
+                        </div>
+                    </div>
+                    -->
+                    <div class="image-container1">
+                        <img src="./image/邮筒.png" width="17%"> 
+                        <div class="content" style="margin: auto;width: 20%;">
+                        <!-- content -->
+                        </div>
+                        <img src="./image/寄信邮筒.png" style="margin-right:10px;width: 15%;"> 
+                    </div>
+                    
+
+                    <script type="text/javascript" src="./js/TagCloud.min.js"></script>
+                    <script>
+                        var texts = [
+                        '子责不周，百身莫赎。', 
+                        '内外平安，免远念', 
+                        '唯望代媳尽力安为',
+                        '儿闻之心甚酸疼万般，儿子罪过', 
+                        '查收应用，请免挂念',
+                        '情长纸短，寸墨难喧', 
+                        '籍知大人玉体康泰，安居集福',
+                        '虽微末之生意，尽其所能亦难维持',
+                        '吾虽洋地，志在家乡。'
+                        ];
+                        var tc = TagCloud('.content', texts);
+                        console.log(tc);
+                    </script>
+                    <script>
+                    
+                        function toDefault() { document.body.classList.remove('light'); }
+                        function toLight() { document.body.classList.add('light'); }
+                   
+                        function addTag() {
+                            if (!tc) return;
+                            texts.push('New');
+                            tc.update(texts);
+                        }
+                        function removeTag() {
+                            if (!tc) return;
+                            texts.pop();
+                            tc.update(texts);
+                        }
+                        var otherTcs = [];
+                     
+                        function toCreate() {
+                            if (otherTcs.length >= 3) return;
+                            otherTcs.push(TagCloud('.content', texts));
+                        }
+                        function toDestroy() {
+                            var last = otherTcs[otherTcs.length - 1];
+                            if (!last) return;
+                            last.destroy();
+                            otherTcs.pop();
+                        }
+                      
+                        function pause() {
+                            [].concat(tc, otherTcs).forEach(function (e) { return e.pause() });
+                        }
+                        function resume() {
+                            [].concat(tc, otherTcs).forEach(function (e) { return e.resume() });
+                        }
+                        
+                        function clickEventHandler(e) {
+                            if (e.target.className === 'tagcloud--item') {
+                                window.open(`http://www.bootstrapmb.com/search?keyword=${e.target.innerText}`, '_blank');
+                            }
+                        }
+                        function addClickEvent() {
+                            var rootEl = document.querySelector('.content');
+                            rootEl.addEventListener('click', clickEventHandler);
+                        }
+                        function removeClickEvent() {
+                            var rootEl = document.querySelector('.content');
+                            rootEl.removeEventListener('click', clickEventHandler);
+                        }
+                    </script>
+                    
+
+
+                    <div class="note2">数据来源：汕头市档案馆</div>
+                    <p>字里行间，有<span class="highlight1">“候有业可任自当厚寄，决不致(置)于脑后”</span>一般笃诚守信的优秀品格，有“火船驶过七洲洋，回头不见我家乡，是好是劫全凭命”那样开拓进取的拼搏精神，更有“宜知国与家一体，须唤启精神，以御外侮，最后必有一日之所希望也”的家国情怀。</p>
+                    <p>纸短情长，单薄的批纸上，浸透着海外侨胞的血泪和汗水，蕴含着他们对祖国、故里和亲人的一片深情，昭示着他们<span class="highlight1">对家乡、骨肉的责任感</span>。侨批文字真实记录了中国海外移民艰辛奋斗的心路历程，也见证了中华儿女开拓进取又不忘根脉、身处异地仍心系家国的深厚情怀。</p>
+
+
+                <!--“侨”见未来-->
+                <div id="pt4" style="margin-bottom:10px;">
+                    <div style="height: 10px;"></div>
+                    <div class="imagetittle" style="height: 150px;">
+                        <div style="text-align: center;padding: 4%;"><img src="./image/小标题侨见未来.png" width="30%"></div>
+                    </div>
+                    <p><span class="highlight1">“批”一封，银几许，跨越山海，辗转归乡。</span>2013年6月，历经多方数十年的努力，备受全球华人关注的侨批档案申遗成功，入选世界记忆遗产名录。</p>
+                    <p>涉侨文物建筑凝聚着海外华侨的历史，是展示华侨文化的重要窗口，也是海外华侨乡愁记忆的重要载体。从20 世纪 50 年代起，华侨博物馆开始陆续建立，对华侨华人有关的历史见证物进行收集和保护，对有关的文化和历史进行展示、研究和传播，其中以<span class="highlight1">广东、福建、浙江</span>等一带居多。</p>
+                    <p>如今，除了专门的从事华侨文物保护的华侨博物馆外，我国多个省市的各类博物馆中也有许多华侨文物收录在册。</p>
+                    
+                    <!--各省博物馆分布-->
+                    <div class="note1">中国各省馆藏华侨文物的博物馆分布</div>
+                    <div class="flourish-embed flourish-hierarchy" data-src="visualisation/17397727" style="width: 51%;height: 45%;margin: auto;">
+                        <script src="https://public.flourish.studio/resources/embed.js"></script>
+                    </div>
+                    <div class="note2">数据来源：国家文物局博物馆与社会文物司</div>
+
+                    <p>在馆藏数量方面，<span class="highlight1">黑龙江黑河旅俄华侨纪念馆</span>收录了大批旅俄华侨的书信及器物展品，书写了在特殊历史背景下的百年俄国华侨史和中俄(苏)人民友好史。而在我国华侨的另一个重要发源地——福建，也在华侨文物的搜集保护方面做出了了重大的贡献。</p>
+                    <!--各省博物馆藏品数量-->
+                    <div class="note1">中国各省的华侨文物馆藏数量</div>
+                    <div style="text-align: center;">
+                        <img src="./image/华侨文物馆藏数量更新.png" width="45%" alt="中国各省的华侨文物馆藏数量">
+                    </div>
+                    <div class="note2">数据来源：国家文物局博物馆与社会文物司</div>
+                   
+                    <p>当前，我国各地博物馆所收录的华侨文物种类较为丰富，涵盖了从艺术到生活领域的各类藏品。</p>
+                    <!--华侨藏品分类-->
+                    <div class="note1">中国各博物馆的华侨藏品分类词云图</div>
+                    <div style="text-align: center;"><img src="./image/词云图.gif" width="37%" alt="华侨藏品分类"></div>
+                    <div class="note2">数据来源：国家文物局博物馆与社会文物司</div>
+                
+                <!--结语-->
+                <div id="pt5" style="margin-bottom:10px;">
+                    <div style="height: 10px;"></div>
+                    <div class="imagetittle" style="height: 150px;">
+                        <div style="text-align: center;padding: 4%;"><img src="./image/小标题结语.png" width="16%"></div>
+                    </div>
+                    <p class="highlight1" id="introText1">“侨批成为世界记忆遗产并不是终点，而是研究华侨文化的新起点。”</p>
+
+                    <div class="note2">触碰书本，查看华侨文化遗产保护相关政策</div>
+                        <!-- partial:index.partial.html -->
+                    <div class="scene">
+                        <div class="book-wrap">
+                            <div class="left-side">
+                                <div class="book-cover-left"></div>
+                                <div class="layer1">
+                                    <div class="page-left"></div>
+                                </div>
+                                <div class="layer2">
+                                    <div class="page-left"></div>
+                                </div>
+                                <div class="layer3">
+                                    <div class="page-left"></div>
+                                </div>
+                                <div class="layer4">
+                                    <div class="page-left"></div>
+                                </div>
+                                <div class="layer-text">
+                                    <div class="page-left-2">
+                                        <div class="corner"></div>
+                                        <div class="corner2"></div>
+                                        <div class="corner-fold"></div>
+                                        <div class="page-text w-richtext">
+                                            <h3><strong>民盟中央：关于加强华侨文化遗产保护，巩固海内外联系纽带的提案</strong></h3>
+                                            <h6>源于：<a href="http://cpc.people.com.cn/n1/2021/0227/c436820-32038419.html" target="_blank">人民网-中国共产党新闻网</a></h6>
+                                            <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp开展全面普查，建立华侨文化遗产数字化档案。以各地华侨主题博物馆、纪念馆、展览馆为依托，大力开展华侨文化遗产特别是非物质华侨文化遗产的普查，进一步摸清华侨文化遗产“家底”，将普查结果编印成册，并建立数字化档案，建立健全华侨文化遗产的普查、登记、建档、认定、保护等制度。<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp推进华侨文化交流重要平台建设。发挥华侨博物馆的文化桥梁作用，支持其与海外华侨博物馆开展馆藏交流和举办联展等合作。设立专项资金，支持华侨华人进行家族史编纂及祖居修缮，支持侨乡利用名人故居、宗族祠堂等资源大力发展村史馆、家族史馆、非遗民俗馆等华侨专题场馆。发挥各地基层侨联组织作用，收集各地家族谱并将其数字化保存，向海外华侨提供寻根服务，推动与华侨华人建立乡情维系……</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="center"></div>
+                            <div class="right-side">
+                                <div class="book-cover-right"></div>
+                                <div class="layer1">
+                                    <div class="page-right"></div>
+                                </div>
+                                <div class="layer2 right">
+                                    <div class="page-right"></div>
+                                </div>
+                                <div class="layer3 right">
+                                    <div class="page-right"></div>
+                                </div>
+                                <div class="layer4 right">
+                                    <div class="page-right"></div>
+                                </div>
+                                <div class="layer-text right">
+                                    <div class="page-right-2">
+                                        <div class="page-text w-richtext">
+                                            <h3><strong>关于加强涉侨文物保护利用合作协议</strong></h3>
+                                            <h6>源于：<a href="http://www.ncha.gov.cn/art/2022/9/20/art_722_177354.html" target="_blank">国家文物局</a></h6>
+                                            <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp中国侨联是党和政府联系广大归侨侨眷和海外侨胞的桥梁纽带，涉侨文物是我国文化遗产的重要组成部分，也是华侨华人与祖国同呼吸共命运的重要实证，对于最大限度凝聚、发挥华侨华人巨大能量具有重要作用。双方将以此为新起点，激发合作潜能，共同传承保护涉侨文化遗产，守护华侨华人历史记忆，做好阐释展示传播，让涉侨文物活起来，加强文明交流互鉴，讲好中国故事。<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp国家文物局与中国侨联将在加强国内涉侨文化遗产的保护管理，推进海外中华文化遗产的研究交流，鼓励引导广大海外侨胞参与文物回归，共同促成流失海外文物回归，共建中国华侨历史博物馆，指导支持涉侨博物馆发展等方面展开合作……</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            <!-- partial -->
+
+                    <p>如今，水客的身影与批局的繁荣早已随时代的前行而暗淡，但是以侨批为代表的“诚实守信、艰苦奋斗、勇于开拓、心系桑梓”的华侨文化却永远不会过时。</p>
+                    <p>赓续文化命脉，厚植家国情怀，你我都可以是新时代“侨”文章的执笔者。</p>
+
+                    <!--<div class="container">-->
+                        <!-- partial:index.partial.html -->
+                        <!--
+                        <input type="checkbox" name="light" id="light">
+                        <input type="checkbox" name="night" id="night">
+                        <div class="sky" style="top: 100px;">
+                            <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><i></i><i></i><i></i><i></i><i></i><i></i>
+                        </div>
+                        <div class="sea"><span></span></div>
+                        <div class="content111">
+                            <div class="lighthouse">
+                                <div class="base"></div>
+                                <div class="tower"></div>
+                                <div class="top"></div>
+                                <div class="roof"></div>
+                                <div class="light"></div>
+                            </div>
+                            <div class="lighthouse">
+                                <div class="base"></div>
+                                <div class="tower"></div>
+                            </div>
+                            <label for="light"></label>
+                            
+                        </div>
+                        <label for="night"></label>-->
+                        <!-- partial -->
+                    </div>
+
+                </div>
+
+
+
+                <!--参考文献等-->
+                <div style="margin-bottom:10px;">
+                    <div style="height: 20px;"></div>
+                    <div class="imageending" style="height: 920px;">
+                        <div style="background-color: #d5c9b774; height: 920px;">
+                        <div style="height: 20px;"></div>
+
+                            <p class="note1">团队成员：</p>
+                            <p class="note4">
+                                唐颖妍 黄芷欣 李桂霞 朱辰暄</p>
+                            <p class="note1">指导老师</p>
+                            <p class="note4">赵甜芳 刘小丽</p>
+
+                            <p class="note1">数据来源：</p>
+                            <p class="note4">
+                                [1]潮汕侨批文献查询统计系统<br>
+                                （汕头市潮汕历史文化研究中心与中山大学历史人类学研究中心共同研发）<br>
+                                [2]大学数字图书馆国际合作计划（特藏资源）<br>
+                                [3]国家文物局博物馆与社会文物司<br>
+                                [4]汕头档案馆<br>
+                                [5]百年跨国两地书·福建侨批网上展厅<br>
+                            </p>
+                            <p class="note1">参考资料：</p>
+                            <p class="note4">
+                                [1]中国侨网微信公众号：《家国情怀寄尺素 这些侨批背后的故事令人动容》<br>
+                                [2]汕头发布：《潮汕侨批之最 ② | 字少事大！侨批上的数字如何讲述“金融风暴”？》<br>
+                                [3]汕头发布：《潮汕侨批之最⑤ | 写回批先看说明书？这些侨批暗语你知道吗》<br>
+                                [4]晋江统战公众号：《闽南侨批及侨批上的货币称谓》<br>
+                                [5]中国侨网：《潮汕侨批：尺素渡海 纸短情长》<br>
+                            </p>
+                            <p class="note4">2024 ©暨南大学 新闻与传播学院</p>
+                        
+
+                    </div>
+                </div>
+        
+        </div>
+    </div>
+
+
+    <!-- script -->
+    <!-- 加载页 -->
+    <script>
+        // 模拟加载延迟
+        setTimeout(function() {
+            // 隐藏加载页
+            document.querySelector('.loading-container').style.display = 'none';
+            // 显示内容
+            document.querySelector('.allcontent').style.display = 'block';
+        }, 3300); // 这里的3000表示加载延迟时间，单位为毫秒
+            // 强制显示内容，确保内容显示
+            document.addEventListener("DOMContentLoaded", function() {
+                document.querySelector('.allcontent').style.display = 'block';
+            });
+    </script>
+    
+    
+    <!-- 导航栏显示 -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var navbar = document.getElementById("menu");
+            var navLinks = document.querySelectorAll('#menu .nav-link');
+    
+            window.onscroll = function() {
+                var scrollHeight = window.pageYOffset || document.documentElement.scrollTop;
+                var threshold = 980; // 设置滚动高度的阈值，根据需要调整
+    
+                if (scrollHeight > threshold) {
+                    navbar.classList.remove("navbar-hidden");
+                } else {
+                    navbar.classList.add("navbar-hidden");
+                }    
+
+            };
+
+        });
+    </script>
+    
+    <!--轮播图-->
+    <script>
+            let currentSlide = 0;
+            const totalSlides = document.querySelectorAll('.carousel-image').length;
+        
+            function showSlide(index) {
+                const carouselImages = document.querySelector('.carousel-images');
+                carouselImages.style.transform = `translateX(-${index * 100}%)`;
+                currentSlide = index;
+            }
+        
+            function prevSlide() {
+                currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+                showSlide(currentSlide);
+            }
+        
+            function nextSlide() {
+                currentSlide = (currentSlide + 1) % totalSlides;
+                showSlide(currentSlide);
+            }
+        
+            // 自动播放
+            setInterval(() => {
+                nextSlide();
+            }, 3200); // 3.2秒自动切换一次
+        </script>
+
+    
+    <!-- 打字机动画 -->
+    <script>
+        // 获取引言文字元素
+        const introText1 = document.getElementById('introText1');
+
+        // 检测元素是否在视口中
+        function isElementInViewport(el) {
+            const rect = el.getBoundingClientRect();
+            return (
+                rect.top >= 0 &&
+                rect.left >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+            );
+        }
+
+        // 检测滚动事件
+        window.addEventListener('scroll', function () {
+            if (isElementInViewport(introText1)) {
+                // 隐藏光标
+                introText1.style.borderRight = 'none';
+                // 调用打字机效果函数
+                typeWriter(introText1);
+                // 移除滚动事件监听，确保效果只触发一次
+                window.removeEventListener('scroll', arguments.callee);
+            }
+        });
+
+        function typeWriter(element, callback) {
+            const text = element.innerHTML.trim(); // 使用 trim() 去除两端空白字符
+            element.innerHTML = '';
+            let i = 0;
+
+            function type() {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(type, 40);
+                } else {
+                    // 执行回调函数
+                    if (typeof callback === 'function') {
+                        callback();
+                    }
+                }
+            }
+
+            type();
+        }
+    </script>
+    <!-- 小标题鼠标移入效果 -->
+    <script>
+        // 写个脚本控制鼠标移入效果
+
+        // 找到所有span标签
+        let spans = document.querySelectorAll('span');
+
+        // 为所有的标签增加绑定鼠标移入、移除的事件，并处理相关增加或移除样式操作
+        for (const key in spans) {
+            if (spans.hasOwnProperty(key)) {
+                const element = spans[key];
+
+                // key为字符类型，需要转数字。
+                let index = parseInt(key);
+
+                // 增加鼠标移入事件
+                element.addEventListener("mouseover", (e) => {
+                    element.classList.add('flat');
+
+                    // 联动操作，控制前后span同时增加样式
+
+                    // 判断奇数、偶数（spans 是从0开始数的）
+                    if (index % 2 == 0) {
+                        // 偶数后一个联动
+                        spans[index + 1].classList.add('flat');
+                    } else {
+                        // 奇数前一个联动
+                        spans[index - 1].classList.add('flat');
+                    }
+                });
+                // 增加鼠标移出事件
+                element.addEventListener("mouseout", (e) => {
+                    element.classList.remove('flat');
+
+                    // 联动操作，控制前后span同时移除样式
+
+                    // 判断奇数、偶数（spans 是从0开始数的）
+                    if (index % 2 == 0) {
+                        // 偶数后一个联动
+                        spans[index + 1].classList.remove('flat');
+                    } else {
+                        // 奇数前一个联动
+                        spans[index - 1].classList.remove('flat');
+                    }
+                });
+            }
+        }
+    </script>
+    </body>
+    </html>
+    
+
